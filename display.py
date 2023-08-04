@@ -3,7 +3,6 @@
 """
 Brief  : Traffic light annotation
 작성자 : 김준영(21.9.)
-수정자 : 박재형(21.9.)
 """
 import multiprocessing
 import threading
@@ -38,6 +37,7 @@ def draw_image(pair_list, result_path):
                 xmax = anno[6]
                 ymax = anno[7]
 
+                cv2.putText(img, anno[13], (2448/2, 2048/2), cv2.FONT_HERSHEY_SIMPLEX, 1, util.COLORS[util.cls_to_idx[anno[13]]], 2)
                 cv2.putText(img, anno[0], (xmin-5, ymin-5), cv2.FONT_HERSHEY_SIMPLEX, 1, util.COLORS[util.cls_to_idx[anno[0]]], 2)
                 cv2.rectangle(img, (xmin, ymin), (xmax, ymax), util.COLORS[util.cls_to_idx[anno[0]]], 3)
 
@@ -47,7 +47,7 @@ def draw_image(pair_list, result_path):
 
 
 def main():
-    root_path = 'C:/Users/stillrunning/Desktop/TL_annotation'
+    root_path = '/home/stillrunning/code/TL_annotation'
     img_folder_path = os.path.join(root_path, 'png')
     txt_folder_path = os.path.join(root_path, 'result')
     result_path = './display'

@@ -10,7 +10,7 @@ import sys
 import glob
 from collections import Counter
 
-anno_path = sys.argv[1] if len(sys.argv) > 1 else "./all_data"
+anno_path = sys.argv[1] if len(sys.argv) > 1 else "./result"
 label_list = glob.glob(anno_path + '/*.txt')
 
 width = []

@@ -4,6 +4,7 @@
 Brief  : Traffic light annotation
 작성자 : 김준영(21.9.)
 수정자 : 박재형(21.9.)
+수정자 : 김준영(22.7.)
 """
 import os
 import Tkinter
@@ -65,6 +66,8 @@ def check_data_format(name, anno):
             anno[idx] = str(anno[idx])
         elif idx in [2, 4, 5, 6, 7]:
             anno[idx] = int(anno[idx])
+        elif idx == 13: #예외적으로 [13]번째 z 값을 현재scen의 신호로 바꿈
+            anno[idx] = str(anno[idx])
         else:
             anno[idx] = float(anno[idx])
 
